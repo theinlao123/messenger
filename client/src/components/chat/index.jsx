@@ -1,5 +1,5 @@
 
-const ChatPage = () => {
+const ChatPage = ({socket}) => {
     return (
         <div>
             <h1>Chat page</h1>
