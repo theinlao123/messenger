@@ -10,16 +10,16 @@ const Body = () => {
             </header>
 
             <div className={styles.container}>
-                <div className={styles.chat}>
-                    <p>Вы</p>
-                    <div className={`${styles.message} ${styles.messageSender}`}>
+                <div className={styles.chats}>
+                    <p className={styles.senderName}>Вы</p>
+                    <div className={styles.messageSender}>
                         <p>Hello</p>
                     </div>
                 </div>
 
-                <div className={styles.chat}>
+                <div className={styles.chats}>
                     <p>Вы</p>
-                    <div className={`${styles.message} ${styles.messageRecipient}`}>
+                    <div className={styles.messageRecipient}>
                         <p>Hello</p>
                     </div>
                 </div>

@@ -19,31 +19,37 @@
 }
 
 .container {
-  display: flex;
+  /* display: flex; */
   height: 90%;
-}
-
-.chat {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   padding: 20px;
-  box-sizing: border-box;
+  overflow-y: scroll;
 }
 
-.message {
-  padding: 10px;
-  border-radius: 8px;
+.container > * {
   margin-bottom: 10px;
 }
 
-.messageSender {
-  background-color: #e0e0e0;
-  margin-left: auto; /* Выравнивание вправо */
+.chats > p {
+  font-size: 13px;
+}
+
+.senderName {
+  text-align: right;
 }
 
 .messageRecipient {
-  background-color: #d3e0dc;
-  margin-right: auto; /* Выравнивание влево */
+  background-color: #f9efec;
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
 }
 
+.messageSender {
+  background-color: rgb(194, 243, 194);
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  font-size: 15px;
+}
