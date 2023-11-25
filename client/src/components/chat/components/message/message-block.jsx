@@ -4,10 +4,10 @@ import styles from './styles.module.css'
 const MessageBlock = () => {
 
     return (
-        <div className='message-block'>
+        <div className={styles.messageBlock}>
             <form action="">
-                <input type="text" className='user-message'/>
-                <button>Сказать</button>
+                <input type="text" className={styles.userMessage} />
+                <button className={styles.submitButton}>Сказать</button>
             </form>
         </div>
     );

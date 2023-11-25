@@ -5,21 +5,21 @@ const Body = () => {
 
     return (
         <>
-            <header className='header'>
-                <button className='btn'>Покинуть чат</button>
+            <header className={styles.header}>
+                <button className={styles.btn}>Покинуть чат</button>
             </header>
 
-            <div className="container">
-                <div className="chats">
+            <div className={styles.container}>
+                <div className={styles.chat}>
                     <p>Вы</p>
-                    <div className="message-sender">
+                    <div className={`${styles.message} ${styles.messageSender}`}>
                         <p>Hello</p>
                     </div>
                 </div>
 
-                <div className="chats">
+                <div className={styles.chat}>
                     <p>Вы</p>
-                    <div className="message-recipient">
+                    <div className={`${styles.message} ${styles.messageRecipient}`}>
                         <p>Hello</p>
                     </div>
                 </div>

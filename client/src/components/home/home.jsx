@@ -14,12 +14,16 @@ const Home = ({socket}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Войти в чат</h2>
-            <label htmlFor='user'></label>
-            <input type="text" id='user' value={user} onChange={(e) => setUser(e.target.value)}/>
-            <button type='submit'>Войти</button>
-        </form>
+        <div className={styles.container}>
+            <form className={styles.form} onSubmit={handleSubmit}>
+                <h2>Войти в чат</h2>
+                <div className={styles.inputContainer}>
+                    <label htmlFor='user'></label>
+                    <input className={styles.input} type="text" id='user' value={user} onChange={(e) => setUser(e.target.value)}/>
+                </div>
+                <button className={styles.button} type='submit'>Войти</button>
+            </form>
+        </div>
     );
 };
 

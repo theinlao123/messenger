@@ -1,0 +1,49 @@
+.header {
+  height: 5%;
+  margin-left: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20px;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  background-color: #ff3333;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  height: 90%;
+}
+
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.messageSender {
+  background-color: #e0e0e0;
+  margin-left: auto; /* Выравнивание вправо */
+}
+
+.messageRecipient {
+  background-color: #d3e0dc;
+  margin-right: auto; /* Выравнивание влево */
+}
+
