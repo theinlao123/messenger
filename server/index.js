@@ -23,6 +23,11 @@ app.get('api', (req, res) => {
 
 socketIO.on('connection', (socket) => {
     console.log(`${socket.id} user connected`)
+
+    socket.on('message', (data) => {
+        socketIO.emit('response', data)
+    })
+
     socket.on('disconnect', () => {
         console.log(`${socket.id} disconnect`)
     })

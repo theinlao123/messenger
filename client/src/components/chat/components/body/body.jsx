@@ -1,28 +1,48 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from './styles.module.css'
 
-const Body = () => {
+const Body = ({messages}) => {
+    const navigate = useNavigate();
+
+    const handleLeave = () => {
+        localStorage.removeItem('user')
+        navigate('/')
+    }
 
     return (
         <>
             <header className={styles.header}>
-                <button className={styles.btn}>Покинуть чат</button>
+                <button className={styles.btn} onClick={handleLeave}>Покинуть чат</button>
             </header>
 
             <div className={styles.container}>
-                <div className={styles.chats}>
-                    <p className={styles.senderName}>Вы</p>
-                    <div className={styles.messageSender}>
-                        <p>Hello</p>
-                    </div>
-                </div>
+                {
+                    messages.map(element => 
+                        element.name === localStorage.getItem('user') ? (
+                            <div className={styles.chats} key={element.id}>
+                                <p className={styles.senderName}>Вы</p>
+                                <div className={styles.messageSender}>
+                                    <p>{element.text}</p>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className={styles.chats} key={element.id}>
+                                <p>{element.name}</p>
+                                <div className={styles.messageRecipient}>
+                                    <p>{element.text}</p>
+                                </div>
+                            </div>
+                        ))
+                }
+                
 
-                <div className={styles.chats}>
+                {/* <div className={styles.chats}>
                     <p>Вы</p>
                     <div className={styles.messageRecipient}>
                         <p>Hello</p>
                     </div>
-                </div>
+                </div> */}
             </div>
         </>
     );

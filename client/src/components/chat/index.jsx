@@ -1,15 +1,23 @@
+import React, { useEffect, useState } from "react";
 import Body from "./components/body/body";
 import MessageBlock from "./components/message/message-block";
 import Sidebar from "./components/sidebar/sidebar";
 import styles from './styles.module.css'
 
 const ChatPage = ({socket}) => {
+
+    const [messages, setMessages] = useState([]);
+
+    useEffect(()=>{
+        socket.on('response', (data) => setMessages([...messages, data]))
+    },[socket,messages])
+
     return (
         <div className={styles.chat}>
             <Sidebar />
             <main className={styles.main}>
-                <Body />
-                <MessageBlock />
+                <Body messages={messages}/>
+                <MessageBlock socket={socket}/>
             </main>
         </div>
     )
