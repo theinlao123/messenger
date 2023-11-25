@@ -35,6 +35,10 @@ socketIO.on('connection', (socket) => {
         socketIO.emit('responseNewUser', users)
     })
 
+    socket.on('typing', (data) => {
+        socket.broadcast.emit('responseTyping', data)
+    })
+
     socket.on('disconnect', () => {
         console.log(`${socket.id} disconnect`)
     })

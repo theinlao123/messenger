@@ -17,7 +17,7 @@ const Sidebar = ({socket}) => {
 
     return (
         <div className={styles.sidebar}>
-            <h4 className={styles.header}>Users</h4>
+            <h4 className={styles.header}>В чате</h4>
             <ul className={styles.users}>
                 {
                     users.map(element => (

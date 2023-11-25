@@ -4,6 +4,8 @@ import styles from './styles.module.css'
 const MessageBlock = ({socket}) => {
 
     const [message, setMessage] = useState('');
+    const isTyping = () => socket.emit('typing', `${localStorage.getItem('user')} печатает ...`)
+
     const handleSend = (e) => {
         e.preventDefault();
         if (message.trim() && localStorage.getItem('user')) {
@@ -24,9 +26,10 @@ const MessageBlock = ({socket}) => {
                     type="text" 
                     className={styles.userMessage}
                     value={message}
-                    onChange={(e) => setMessage(e.target.value)} 
+                    onChange={(e) => setMessage(e.target.value)}
+                    onKeyDown={isTyping} 
                 />
-                <button className={styles.submitButton}>Сказать</button>
+                <button className={styles.submitButton}>Отправить</button>
             </form>
         </div>
     );

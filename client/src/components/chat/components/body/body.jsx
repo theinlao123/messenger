@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './styles.module.css'
 
-const Body = ({messages}) => {
+const Body = ({messages, status}) => {
     const navigate = useNavigate();
 
     const handleLeave = () => {
@@ -36,13 +36,9 @@ const Body = ({messages}) => {
                         ))
                 }
                 
-
-                {/* <div className={styles.chats}>
-                    <p>Вы</p>
-                    <div className={styles.messageRecipient}>
-                        <p>Hello</p>
-                    </div>
-                </div> */}
+                <div className={styles.status}>
+                    <p>{status}</p>
+                </div>
             </div>
         </>
     );

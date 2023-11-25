@@ -6,7 +6,7 @@
 }
 
 .userMessage {
-  width: calc(100% - 160px); /* Используем calc, чтобы учесть отступы */
+  width: calc(100% - 170px); /* Используем calc, чтобы учесть отступы */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
