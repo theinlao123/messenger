@@ -15,12 +15,18 @@ const socketIO = require('socket.io')(http, {
     }
 })
 
-
 app.get('api', (req, res) => {
     res.json({
         message: 'hello'
     })
 });
+
+socketIO.on('connection', (socket) => {
+    console.log(`${socket.id} user connected`)
+    socket.on('disconnect', () => {
+        console.log(`${socket.id} disconnect`)
+    })
+})
 
 http.listen(PORT, () => {
     console.log('Server working')
