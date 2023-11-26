@@ -9,12 +9,6 @@ const Sidebar = ({socket}) => {
         socket.on('responseNewUser', (data) => setUsers(data))
     },[socket, users])
 
-    // const filteredList = users.filter((value, index, self) => 
-    //     index === self.findIndex((t) => (
-    //         t.user === value.user && t.socket === value.socketID
-    //     ))
-    // )
-
     return (
         <div className={styles.sidebar}>
             <h4 className={styles.header}>В чате</h4>

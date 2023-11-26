@@ -24,7 +24,7 @@ const ChatPage = ({socket}) => {
         <div className={styles.chat}>
             <Sidebar socket={socket}/>
             <main className={styles.main}>
-                <Body messages={messages} status={status}/>
+                <Body messages={messages} status={status} socket={socket}/>
                 <MessageBlock socket={socket}/>
             </main>
         </div>

@@ -29,6 +29,15 @@
   margin-bottom: 10px;
 }
 
+.chats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left; 
+}
+
 .chats > p {
   font-size: 13px;
 }
@@ -47,11 +56,12 @@
 
 .messageSender {
   background-color: rgb(194, 243, 194);
-  max-width: 300px;
+  /* max-width: 300px; */
   padding: 10px;
   border-radius: 10px;
   margin-left: auto;
   font-size: 15px;
+  display: inline-block;
 }
 
 .status {

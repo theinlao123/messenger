@@ -8,10 +8,20 @@ const Home = ({socket}) => {
     const [user, setUser] = useState('');
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        localStorage.setItem('user', user)
-        socket.emit('newUser', {user, socketID: socket.id})
-        navigate('/chat')
+    
+        e.preventDefault();
+
+        const userCount = parseInt(localStorage.getItem('userCount')) || 0;
+
+        const newUserKey = `user${userCount + 1}`;
+
+        localStorage.setItem(newUserKey, JSON.stringify({ user, socketID: socket.id }));
+
+        localStorage.setItem('userCount', userCount + 1);
+
+        socket.emit('newUser', { user, socketID: socket.id });
+
+        navigate('/chat');
     }
 
     return (

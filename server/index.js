@@ -31,8 +31,15 @@ socketIO.on('connection', (socket) => {
     })
 
     socket.on('newUser', (data) => {
-        users.push(data);
-        socketIO.emit('responseNewUser', users)
+        
+        const existingUserIndex = users.findIndex(user => user.socketID === data.socketID);
+        if (existingUserIndex !== -1) {
+            users.splice(existingUserIndex, 1);
+        } else {
+            users.push(data);
+        }
+
+        socketIO.emit('responseNewUser', users);
     })
 
     socket.on('typing', (data) => {
