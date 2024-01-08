@@ -21,10 +21,23 @@ app.get('api', (req, res) => {
     })
 });
 
+app.post('/newUser', (req, res) => {
+    const existingUserIndex = users.findIndex(user => user.socketID === req.body.socketID);
+    if (existingUserIndex !== -1) {
+        users.splice(existingUserIndex, 1);
+    } else {
+        users.push(req.body);
+    }
+
+    socketIO.emit('responseNewUser', users);
+
+    res.json(users);
+});
+
 const users = []
 
 socketIO.on('connection', (socket) => {
-    console.log(`${socket.id} user connected`)
+    // console.log(`${socket.id} user connected`)
 
     socket.on('message', (data) => {
         socketIO.emit('response', data)
@@ -32,14 +45,14 @@ socketIO.on('connection', (socket) => {
 
     socket.on('newUser', (data) => {
         
-        const existingUserIndex = users.findIndex(user => user.socketID === data.socketID);
-        if (existingUserIndex !== -1) {
-            users.splice(existingUserIndex, 1);
-        } else {
-            users.push(data);
-        }
+        // const existingUserIndex = users.findIndex(user => user.socketID === data.socketID);
+        // if (existingUserIndex !== -1) {
+        //     users.splice(existingUserIndex, 1);
+        // } else {
+        //     users.push(data);
+        // }
 
-        socketIO.emit('responseNewUser', users);
+        // socketIO.emit('responseNewUser', users);
     })
 
     socket.on('typing', (data) => {
@@ -47,9 +60,11 @@ socketIO.on('connection', (socket) => {
     })
 
     socket.on('disconnect', () => {
-        console.log(`${socket.id} disconnect`)
+        // console.log(`${socket.id} disconnect`)
     })
 })
+
+module.exports = app;
 
 http.listen(PORT, () => {
     console.log('Server working')
